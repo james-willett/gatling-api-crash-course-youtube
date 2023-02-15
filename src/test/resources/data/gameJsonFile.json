@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Resident Evil 4",
+    "releaseDate": "2005-10-01 23:59:59",
+    "reviewScore": 85,
+    "category": "Shooter",
+    "rating": "Universal"
+  },
+  {
+    "id": 1,
+    "name": "Gran Turismo 3",
+    "releaseDate": "2001-03-10 23:59:59",
+    "reviewScore": 91,
+    "category": "Driving",
+    "rating": "Universal"
+  },
+  {
+    "id": 1,
+    "name": "Tetris",
+    "releaseDate": "1984-06-25 23:59:59",
+    "reviewScore": 88,
+    "category": "Puzzle",
+    "rating": "Universal"
+  },
+  {
+    "id": 4,
+    "name": "Super Mario 64",
+    "releaseDate": "1996-10-20 23:59:59",
+    "reviewScore": 90,
+    "category": "Platform",
+    "rating": "Universal"
+  },
+  {
+    "id": 5,
+    "name": "The Legend of Zelda: Ocarina of Time",
+    "releaseDate": "1998-12-10 23:59:59",
+    "reviewScore": 93,
+    "category": "Adventure",
+    "rating": "PG-13"
+  },
+  {
+    "id": 6,
+    "name": "Doom",
+    "releaseDate": "1993-02-18 23:59:59",
+    "reviewScore": 81,
+    "category": "Shooter",
+    "rating": "Mature"
+  },
+  {
+    "id": 7,
+    "name": "Minecraft",
+    "releaseDate": "2011-12-05 23:59:59",
+    "reviewScore": 77,
+    "category": "Puzzle",
+    "rating": "Universal"
+  },
+  {
+    "id": 8,
+    "name": "SimCity 2000",
+    "releaseDate": "1994-09-11 23:59:59",
+    "reviewScore": 88,
+    "category": "Strategy",
+    "rating": "Universal"
+  },
+  {
+    "id": 9,
+    "name": "Final Fantasy VII",
+    "releaseDate": "1997-08-20 23:59:59",
+    "reviewScore": 97,
+    "category": "RPG",
+    "rating": "PG-13"
+  },
+  {
+    "id": 10,
+    "name": "Grand Theft Auto III",
+    "releaseDate": "2001-04-23 23:59:59",
+    "reviewScore": 90,
+    "category": "Driving",
+    "rating": "Mature"
+  }
+]

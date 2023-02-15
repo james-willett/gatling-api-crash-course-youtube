@@ -14,6 +14,9 @@ public class VideoGameDbSimulation extends Simulation {
             .acceptHeader("application/json")
             .contentTypeHeader("application/json");
 
+    // FEEDER FOR TEST DATA
+    private static FeederBuilder.FileBased<Object> jsonFeeder = jsonFile("data/gameJsonFile.json").random();
+
     // HTTP CALLS
     private static ChainBuilder getAllVideoGames =
             exec(http("Get all video games")
@@ -29,19 +32,22 @@ public class VideoGameDbSimulation extends Simulation {
                     .check(jmesPath("token").saveAs("jwtToken")));
 
     private static ChainBuilder createNewGame =
-            exec(http("Create New Game")
+            feed(jsonFeeder)
+                    .exec(http("Create New Game - #{name}")
                     .post("/videogame")
                     .header("Authorization", "Bearer #{jwtToken}")
                     .body(ElFileBody("bodies/newGameTemplate.json")).asJson());
 
     private static ChainBuilder getLastPostedGame =
-            exec(http("Get Last Posted Game")
-                    .get("/videogame/1"));
+            exec(http("Get Last Posted Game - #{name}")
+                    .get("/videogame/#{id}")
+                    .check(jmesPath("name").isEL("#{name}")));
 
     private static ChainBuilder deleteLastPostedGame =
-            exec(http("Delete Game")
-                    .delete("/videogame/1")
-                    .header("Authorization", "Bearer #{jwtToken}"));
+            exec(http("Delete Game - #{name}")
+                    .delete("/videogame/#{id}")
+                    .header("Authorization", "Bearer #{jwtToken}")
+                    .check(bodyString().is("Video game deleted")));
 
     // Scenario Definition
     // 1. Get all video games
