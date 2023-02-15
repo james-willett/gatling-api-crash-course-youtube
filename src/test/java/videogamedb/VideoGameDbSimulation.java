@@ -14,8 +14,20 @@ public class VideoGameDbSimulation extends Simulation {
             .acceptHeader("application/json")
             .contentTypeHeader("application/json");
 
+    // RUNTIME PARAMETERS
+    private static final int USER_COUNT = Integer.parseInt(System.getProperty("USERS", "5"));
+    private static final int RAMP_DURATION = Integer.parseInt(System.getProperty("RAMP_DURATION", "10"));
+
+
     // FEEDER FOR TEST DATA
     private static FeederBuilder.FileBased<Object> jsonFeeder = jsonFile("data/gameJsonFile.json").random();
+
+    // BEFORE BLOCK
+    @Override
+    public void before() {
+        System.out.printf("Running test with %d users%n", USER_COUNT);
+        System.out.printf("Ramping users over %d seconds%n", RAMP_DURATION);
+    }
 
     // HTTP CALLS
     private static ChainBuilder getAllVideoGames =
@@ -69,7 +81,9 @@ public class VideoGameDbSimulation extends Simulation {
     // Load Simulation
     {
         setUp(
-                scn.injectOpen(atOnceUsers(1))
-        ).protocols(httpProtocol);
+                scn.injectOpen(
+                        nothingFor(5),
+                        rampUsers(USER_COUNT).during(RAMP_DURATION)
+        )).protocols(httpProtocol);
     }
 }

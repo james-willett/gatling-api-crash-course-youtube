@@ -8,7 +8,7 @@
     "rating": "Universal"
   },
   {
-    "id": 1,
+    "id": 2,
     "name": "Gran Turismo 3",
     "releaseDate": "2001-03-10 23:59:59",
     "reviewScore": 91,
@@ -16,7 +16,7 @@
     "rating": "Universal"
   },
   {
-    "id": 1,
+    "id": 3,
     "name": "Tetris",
     "releaseDate": "1984-06-25 23:59:59",
     "reviewScore": 88,
